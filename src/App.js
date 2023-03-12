@@ -5,6 +5,7 @@ import Admin from "./Layout/Admin";
 import Auth from "./Layout/Auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <>

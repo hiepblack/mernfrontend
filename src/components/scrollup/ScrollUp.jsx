@@ -1,7 +1,7 @@
 
 import React from 'react'
 import "./scrollUp.css"
-
+import { Link } from 'react-router-dom'
 const ScrollUp = () => {
     window.addEventListener('scroll',function(){
         const scrollUp = document.querySelector(".scrollup")
@@ -12,9 +12,9 @@ const ScrollUp = () => {
         }
     })
   return (
-    <a href="#" className="scrollup">
+    <Link href="#" className="scrollup" >
         <i className="uil uil-arrow-up scrollup__icon"></i>
-    </a>
+    </Link>
   )
 }
 

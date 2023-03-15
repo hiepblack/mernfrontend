@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { BASE_URL } from "../../hook";
+import { toast } from "react-toastify";
 
 const userSchema = object({
   email: string().required("vui long nhap day du email"),
@@ -47,11 +48,11 @@ const Login = () => {
             }
             localStorage.setItem("user", JSON.stringify(data));
             localStorage.setItem("token", JSON.stringify(data.token));
-            localStorage.setItem("isAuth",true);
+            localStorage.setItem("isAuth", true);
           });
       })
       .catch((error) => {
-        error.errors.forEach((error) => alert(error));
+        error.errors.forEach((error) => toast(error));
       });
   };
   return (
@@ -60,9 +61,9 @@ const Login = () => {
         ""
       ) : (
         <div className="login__intro">
-          <p className="login__icon">
-            <i class="bx bx-mouse-alt icon"></i>
-          </p>
+            <p className="login__icon">
+              <i class="bx bx-mouse-alt icon"></i>
+            </p>
           <h2 className="login__title">Welcome To My Portfolio</h2>
           <span className="login__subtitle">
             Log in with your account to continue
@@ -79,7 +80,9 @@ const Login = () => {
       {open ? (
         <div className="login__form">
           <div>
+            <Link to="/">
             <i class="bx bx-mouse-alt icon"></i>
+            </Link>
           </div>
           <form onSubmit={handleSignIn}>
             <h3>Welcome back</h3>

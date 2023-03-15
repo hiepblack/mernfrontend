@@ -3,6 +3,7 @@ import "./register.css";
 import { Link,useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { BASE_URL } from "../../hook";
+import { toast } from "react-toastify";
 
 const userSchema = object({
   username: string().required("vui long nhap username"),
@@ -34,18 +35,20 @@ const Register = () => {
             return res.json();
           })
           .then((data) => {
-              alert(data.message)
+              toast(data.message)
               navigate("/auth/login");
           });
     }).catch(err=>{
-        err.errors.forEach((error) => alert(error));
+        err.errors.forEach((error) => toast(error));
     })
   }
   return (
     <section className="login">
       <div className="login__form">
         <div>
+          <Link to="/">
           <i class="bx bx-mouse-alt icon"></i>
+          </Link>
         </div>
         <form onSubmit={handleRegister}>
           <h3>Welcome Friend</h3>

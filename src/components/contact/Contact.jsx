@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import "./contact.css";
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const form = useRef();
@@ -10,9 +11,9 @@ const Contact = () => {
     emailjs.sendForm('service_e4v4zpx', 'template_f31q1rp', form.current, 'jN_Xe5BR9kIqgaFDT')
       .then((result) => {
         e.target.reset();
-          console.log(result.text);
+        toast(`Thank you for contact with me!`)
       }, (error) => {
-          console.log(error.text);
+        toast(error.text);
       });
   };
   return (
@@ -27,7 +28,7 @@ const Contact = () => {
             <div className="contact__card">
               <i className="bx bx-mail-send contact__card-icon"></i>
               <h3 className="contact__card-title">Email</h3>
-              <span className="contact__card-data">admin@gmail.com</span>
+              <span className="contact__card-data">chuongduong0123@gmail.com</span>
               <a href="mailto:example@gmail.com" className="contact__button">
                 Write Me
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -35,8 +36,8 @@ const Contact = () => {
             </div>
             <div className="contact__card">
               <i class="bx bxl-whatsapp contact__card-icon"></i>
-              <h3 className="contact__card-title">Whatsapp</h3>
-              <span className="contact__card-data">1234567889</span>
+              <h3 className="contact__card-title">Phone</h3>
+              <span className="contact__card-data">0978289819</span>
               <a href="mailto:example@gmail.com" className="contact__button">
                 Write Me
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -45,7 +46,7 @@ const Contact = () => {
             <div className="contact__card">
               <i class="bx bxl-messenger contact__card-icon"></i>
               <h3 className="contact__card-title">Messenger</h3>
-              <span className="contact__card-data">User123.fb</span>
+              <span className="contact__card-data">hiepha</span>
               <a href="mailto:example@gmail.com" className="contact__button">
                 Write Me
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
